@@ -1,29 +1,13 @@
 # t2.micro node with an AWS Tag naming it "HelloWorld"
 provider "aws" {
-  region = "us-west-2"
-}
-
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
+  region = "us-east-1"
 }
 
 resource "aws_instance" "web" {
-  ami           = "${data.aws_ami.ubuntu.id}"
+  ami           = "ami-0a887e401f7654935"
   instance_type = "t2.micro"
 
   tags = {
-    Name = "HelloWorld"
+    Name = "terraform test provision"
   }
 }
