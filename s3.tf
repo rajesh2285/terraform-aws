@@ -1,6 +1,6 @@
-provider "aws" {
-  region = "us-west-1"
-}
+# provider "aws" {
+#   region = "us-west-1"
+# }
 resource "aws_s3_bucket" "b" {
   bucket = "rajesh-terraform-demo-1"
   acl    = "private"
